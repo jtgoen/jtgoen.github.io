@@ -1,0 +1,23 @@
+.whats_online {
+    text-align: left;
+    padding-left: .5em;
+    width: 130px;
+}
+
+.whats_online.block_content {
+    line-height: 120%;
+    width: 130px;
+}
+
+.section {
+    font-size: 9pt;
+}
+
+.subsection {
+    font-size: 7.5pt;
+    margin-left: 1em;
+}
+
+.search {
+    margin-top: 5px;
+}

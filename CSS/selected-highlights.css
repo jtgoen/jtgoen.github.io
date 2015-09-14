@@ -1,0 +1,44 @@
+.highlight {
+    display: inline-block;
+    vertical-align: top;
+    text-align: justify;
+}
+.hi_text {
+    padding-top: 5px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: smaller;
+}
+
+#hi1, #hi4 {
+    padding-left: 15px;
+}
+
+#hi4, #hi5, #hi6 {
+    padding-top: 10px;
+}
+
+#hi2 {
+    margin-left: -13px;
+}
+
+#hi3 {
+    margin-right: 13px;
+}
+
+#hi5 {
+    padding-left: 7px;
+}
+
+#hi6 {
+    padding-left: 12px;
+}
+
+.selected_highlights.block_heading {
+    padding-left: 13px;
+}
+
+.selected_highlights.block_content {
+    text-align: justify;
+    padding-bottom: 12px;
+}

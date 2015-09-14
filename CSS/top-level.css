@@ -1,0 +1,27 @@
+#overlay {
+    width: 100%;
+    position: absolute;
+    left:0;
+    top:0;
+    z-index: 100;
+    pointer-events: none;
+    display: none;
+    opacity: .75;
+}
+
+body {
+    color: #FFFFFF;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+.banner {
+    position: absolute;
+    left:-5px;
+    top:0;
+    z-index: 1;
+}
+
+.content {
+    float: left;
+    z-index: 2;
+}

@@ -1,0 +1,23 @@
+.block {
+    padding: 0 0 5px 5px;
+}
+
+.block_heading {
+    font-size: x-small;
+    background-color: #678572;
+    margin-bottom: 5px;
+}
+
+.block_content {
+    background-color: #6D816D;
+}
+
+#left_blocks {
+    margin-left: 8px;
+    float: left;
+}
+
+#right_blocks {
+    float: left;
+    width: 570px;
+}

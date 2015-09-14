@@ -1,0 +1,23 @@
+.exhibition {
+    display: inline-block;
+    padding-left: 25px;
+    padding-top: 8px;
+    vertical-align: top;
+    font-size: 7.5pt/*xx-small;*/
+}
+
+.special_exhibitions.block_heading {
+    padding-left: 13px;
+}
+
+.special_exhibitions.block_content {
+    padding: 0 20px 0 0px;
+}
+
+#more {
+    font-size: 7.5pt;
+    float: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
