@@ -1,3 +1,20 @@
+<!--
+    This site has the current following issues that I have been unable to resolve:
+    1.  There is a discrepancy in how Chrome for Mac and Chrome for Windows renders my reference image for the overlay,
+        and I've been unable to resolve how to properly scale the image based on this fact. Chrome for Windows allows
+        for the proper scaling. The same issue occurs in Firefox for both Mac and Windows, so in the future I plan to
+        build towards Chrome for Mac due to the conformity it seems to have with the other frameworks.
+
+        I also made the grievous error of having all of my padding and margins be structured with pixels, where a more
+        sensible approach would have been to use something like ems or other scalable units for my padding. Having
+        little experience with web programming before this allowed for this now obviously juvenile mistake.
+
+    2.  In the "What's Online" column, there are issues that I have run into with properly spacing out the positioning
+        of the text in order to conform to the original site design, outside of hacking together various padding for
+        each line of text, so there is some alignment issues with it conforming precisely to the original site.
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +52,7 @@
             <div class="whats_online block_heading">
                 What's Online
             </div>
+
             <div class="whats_online block_content">
             <span class="section">
                 <div id="section-padding" style="padding-bottom: 10px;"></div>
@@ -76,6 +94,7 @@
             <div class="special_exhibitions block_heading">
                 Special Exhibitions
             </div>
+
             <div class="special_exhibitions block_content">
                 <div id="ex1" class="exhibition">
                     <img src="IMAGES/chuck_big.jpg">
@@ -88,6 +107,7 @@
                             Through April 18, 2004
                         </span>
                 </div>
+
                 <div id="ex2" class="exhibition">
                     <img src="IMAGES/tla_big.jpg">
                     <br>
@@ -100,6 +120,7 @@
                             Through March 21, 2004
                         </span>
                 </div>
+
                 <div id="ex3" class="exhibition" style="position: relative">
                     <img src="IMAGES/gifford.jpg">
                     <br>
@@ -120,6 +141,7 @@
             <div class="selected_highlights block_heading">
                 Selected Highlights
             </div>
+
             <div class="selected_highlights block_content">
                 <div id="hi1" class="highlight">
                     <img id="himg1" src="IMAGES/ho_green_nam_jan04.gif">
@@ -135,6 +157,7 @@
                             </span>
                     </div>
                 </div>
+
                 <div id="hi2" class="highlight">
                     <img id="himg2" src="IMAGES/ho_green_bag.gif">
                     <div class="hi_text">
@@ -148,6 +171,7 @@
                             </span>
                     </div>
                 </div>
+
                 <div id="hi3" class="highlight">
                     <img id="himg3" src="IMAGES/ho_green_button.gif">
                     <div class="hi_text">
@@ -161,6 +185,7 @@
                             </span>
                     </div>
                 </div>
+
                 <div id="hi4" class="highlight">
                     <img id="himg4" src="IMAGES/ho_green_mkids.gif">
                     <div class="hi_text">
@@ -173,6 +198,7 @@
                             </span>
                     </div>
                 </div>
+
                 <div id="hi5" class="highlight">
                     <img id="himg5" src="IMAGES/ho_green_co_aps.gif">
                     <div class="hi_text">
@@ -186,6 +212,7 @@
                             </span>
                     </div>
                 </div>
+
                 <div id="hi6" class="highlight">
                     <img id="himg6" src="IMAGES/ho_green_mmm_william.gif">
                     <div class="hi_text">
