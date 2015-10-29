@@ -1,0 +1,45 @@
+#begin-container {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    width: 100%;
+}
+
+#begin-text {
+    font-family: Tahoma, Helvetica, serif;
+    font-size: 10vmin;
+}
+
+#horizontal-line {
+    color: #000000;
+    background-color: #000000;
+
+    position: absolute;
+    top: 81%;
+    height: 0.3vmin;
+    width: 100%;
+}
+
+#images {
+    position: absolute;
+    left: 50%;
+    width: 50%;
+}
+
+#beauty {
+    height: auto;
+    width: 35vmin;
+    display : block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vmin;
+}
+
+#hello-world {
+    height: auto;
+    width: 50vmin;
+    display : block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 16vmin;
+}

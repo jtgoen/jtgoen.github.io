@@ -2,16 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-Current layout as of Deliverable 3<br>
-Note: Blue text is only blue here to denote that it will expand and contract with clicking of the ellipsis (will be black in actual page). <br>
-Also, greyed out arrows (highlighted green) are active once all text has been viewed.<br>
-Out Links:  <br>
-<a href="essaysketch_empathy.html">Clicked on continue arrow after all text has been viewed</a>
-<br>
-<img src="IMAGES/essaysketch/nonlinearity.gif" style="width:100%" frameborder="0"/>
+    <title>Nonlinearity</title>
+    <!--Personal JS-->
 
+    <!--Production JS-->
+    <script src="JS/general/jquery-2.1.4.min.js"></script>
+
+
+    <!--Production CSS-->
+    <link href="CSS/essaysketch/lightbox.css" rel="stylesheet">
+
+    <!--Personal CSS-->
+    <link rel="stylesheet" type="text/css" href="CSS/essaysketch/shared.css">
+    <link rel="stylesheet" type="text/css" href="CSS/essaysketch/nonlinearity.css">
+
+
+</head>
+<body class="essay-sketch">
+
+    <div id="title-container">
+        <div id="title-text">
+            Nonlinearity
+        </div>
+    </div>
+
+    <div class="concept" id="nelson">
+        [Nelson] Hypertext as a form of nonsequential writing
+    </div>
+
+    <a href="IMAGES/essaysketch/LargeGraph.png" data-lightbox="large-graph" data-title="Programming languages embody this ideal in many ways, including the not necessarily linear layout of the libraries of a given project, and the usage of such libraries and functions resulting in a nonlinear web of connections"><img src="IMAGES/essaysketch/LargeGraph.png" id="large-graph"></a>
+    <a href="IMAGES/essaysketch/lq_kongshan.gif" data-lightbox="kongshan" data-title="Some of the more avante-garde Chinese calligraphers have taken to positioning elements such as their signatures in non-traditional locations among their works, causing a non-sequential aspect to be given to a traditionally sequential art."><img src="IMAGES/essaysketch/lq_kongshan.gif" id="kongshan"></a>
+
+    <div class="corner-link" id="empathy-link">
+        <a href="essaysketch_empathy.html">PLACEHOLDER</a>
+    </div>
+    <script src="JS/essaysketch/lightbox.min.js"></script>
 </body>
 </html>

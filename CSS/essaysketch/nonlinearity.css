@@ -1,0 +1,41 @@
+#title-container {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 50%;
+}
+
+#title-text {
+    font-family: Lucida Calligraphy, Lucida Handwriting, Palatino, serif;
+    font-size: 10vmin;
+}
+
+#kongshan {
+    height: auto;
+    width: 70vmin;
+    position: absolute;
+    top: 20%;
+    left: 53%;
+}
+
+#large-graph {
+    height: auto;
+    width: 100vmin;
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    opacity: .4;
+}
+
+#empathy-link {
+    position: absolute;
+    top: 90%;
+    left: 90%;
+}
+
+#nelson {
+    position: absolute;
+    top: 25%;
+    left: 8%;
+    width: 50%;
+}
