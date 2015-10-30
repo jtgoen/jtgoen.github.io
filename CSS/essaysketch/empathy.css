@@ -1,0 +1,45 @@
+#title-container {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    margin-right : -50%;
+    transform: translate(-50%, 0);
+}
+
+#title-text {
+    font-family: Tahoma, Helvetica, serif;
+    font-size: 10vmin;
+}
+
+.images {
+    /* width: 60vmin;
+     margin-left: auto;
+     margin-right: auto;
+     display: block;*/
+}
+
+.image {
+    position: absolute;
+    top: 40%;
+    width: 120vmin;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.horizontal-line {
+    position: absolute;
+    height: 0.1vmin !important;
+    top: 80%;
+    left: -1%;
+    width: 101% !important;
+}
+
+#hb {
+    position: absolute;
+}
+
+#syntax {
+    position: absolute;
+}

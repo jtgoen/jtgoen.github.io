@@ -17,3 +17,10 @@
 .corner-link {
 
 }
+
+.horizontal-line {
+    color: #000000;
+    background-color: #000000;
+    height: 0.3vmin;
+    width: 100%;
+}

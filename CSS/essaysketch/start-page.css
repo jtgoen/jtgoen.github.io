@@ -2,7 +2,7 @@
     position: absolute;
     top: 40%;
     left: 10%;
-    width: 100%;
+    width: 90%;
 }
 
 #begin-text {
@@ -10,14 +10,9 @@
     font-size: 10vmin;
 }
 
-#horizontal-line {
-    color: #000000;
-    background-color: #000000;
-
+.horizontal-line {
     position: absolute;
     top: 81%;
-    height: 0.3vmin;
-    width: 100%;
 }
 
 #images {
