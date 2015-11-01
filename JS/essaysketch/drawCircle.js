@@ -1,5 +1,6 @@
 /**
  * Created by John Goen
+ * Draw a simple circle that inscribes the page, with same color as page's compliment.
  */
 var circle = document.getElementById("circle");
 var circle_context = circle.getContext("2d");

@@ -1,10 +1,11 @@
 /**
  * Created by John Goen
+ * Handles all interactivity with items in the EssaySketch
  */
 
 viewedImages = 0;
 
-//Highlighting the information images on hover
+//Highlighting the information images on hover, and update the page when both images have been viewed
 $(".information")
     .mouseenter(function() {
         $(this).addClass('hover');
@@ -24,6 +25,13 @@ $(".information")
         }
     });
 
+function updateConcept() {
+    var text = $('.concept').text();
+    var newText = "";
+    $('.concept').addClass('conceptShow');
+}
+
+//Highlighting the "next page" images on hover
 $(".page-link")
     .mouseenter(function() {
         if ($(this).attr("src") === "IMAGES/essaysketch/return.png") {
@@ -49,10 +57,4 @@ $(".page-link")
             console.log($(this).attr("src"));
         }
     });
-
-function updateConcept() {
-    var text = $('.concept').text();
-    var newText = "";
-    $('.concept').addClass('conceptShow');
-}
 
