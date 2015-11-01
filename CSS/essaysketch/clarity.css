@@ -1,11 +1,10 @@
-#title-container {
-    position: absolute;
+.title-container {
     top: 2%;
     left: 5%;
 }
 
-#title-text {
-    font-family: Courier, sans-serif;
+.title-text {
+    font-family: Courier, sans-serif !important;
     font-size: 15vmin;
     letter-spacing: 3vmin;
 }
@@ -30,17 +29,6 @@
     height: 80%;
     left: 60%;
     top: 20%;
-    /*    position: absolute;
-        height: 9000% !important;
-        top: -1%;
-    left: 80%;
-    width: 0.1vmin !important;
-    color: black;
-    background-color: black;
-    transform:rotate(90deg);
-    -o-transform:rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);*/
 }
 
 #lisp-indent {

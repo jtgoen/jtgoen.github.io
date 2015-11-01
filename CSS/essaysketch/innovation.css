@@ -1,11 +1,9 @@
-#title-container {
-    position: absolute;
+.title-container {
     top: 25%;
     left: 45%;
 }
 
-#title-text {
-    font-family: Tahoma, Helvetica, serif;
+.title-text {
     font-size: 15vmin;
 }
 

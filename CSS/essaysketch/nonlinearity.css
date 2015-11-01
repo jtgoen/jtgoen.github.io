@@ -1,12 +1,11 @@
-#title-container {
-    position: absolute;
+.title-container {
     top: 5%;
     left: 5%;
     width: 50%;
 }
 
-#title-text {
-    font-family: Lucida Calligraphy, Lucida Handwriting, Palatino, serif;
+.title-text {
+    font-family: Lucida Calligraphy, Lucida Handwriting, Palatino, serif !important;
     font-size: 10vmin;
 }
 

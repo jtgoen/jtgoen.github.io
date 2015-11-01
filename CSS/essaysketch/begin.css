@@ -1,12 +1,10 @@
-#begin-container {
-    position: absolute;
+.title-container {
     top: 40%;
     left: 10%;
     width: 90%;
 }
 
-#begin-text {
-    font-family: Tahoma, Helvetica, serif;
+.title-text {
     font-size: 10vmin;
 }
 

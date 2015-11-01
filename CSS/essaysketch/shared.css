@@ -2,6 +2,14 @@
     background-color: #F8ECC2;
 }
 
+.title-container {
+    position: absolute;
+}
+
+.title-text {
+    font-family: Tahoma, Helvetica, serif;
+}
+
 .concept {
     font-family: Tahoma, Helvetica, serif;
     font-size: 3vmin;

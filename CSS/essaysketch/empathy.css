@@ -1,13 +1,11 @@
-#title-container {
-    position: absolute;
+.title-container {
     top: 80%;
     left: 50%;
     margin-right : -50%;
     transform: translate(-50%, 0);
 }
 
-#title-text {
-    font-family: Tahoma, Helvetica, serif;
+.title-text {
     font-size: 15vmin;
 }
 
@@ -19,13 +17,6 @@
     margin-right: -50%;
     transform: translate(-50%, -50%);
     text-align: center;
-}
-
-.images {
-    /* width: 60vmin;
-     margin-left: auto;
-     margin-right: auto;
-     display: block;*/
 }
 
 .image {
