@@ -13,5 +13,5 @@ circle_context.beginPath();
 circle_context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
 
 circle_context.lineWidth = 5;
-circle_context.strokeStyle = '#000000';
+circle_context.strokeStyle = '#6B6793';
 circle_context.stroke();

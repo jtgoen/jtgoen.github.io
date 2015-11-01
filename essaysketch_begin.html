@@ -3,21 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Begin EssaySketch</title>
-    <script src="JS"></script>
 
+    <!--Production JS-->
+    <script src="JS/general/jquery-2.1.4.min.js"></script>
+    <script src="JS/essaysketch/lightbox.min.js" defer></script>
+
+    <!--Personal JS-->
+    <script src="JS/essaysketch/interaction.js" defer></script>
+
+    <!--Production CSS-->
+    <link href="CSS/essaysketch/lightbox.css" rel="stylesheet">
+
+    <!--Personal CSS-->
     <link rel="stylesheet" type="text/css" href="CSS/essaysketch/shared.css">
     <link rel="stylesheet" type="text/css" href="CSS/essaysketch/start-page.css">
 </head>
 <body class="essay-sketch">
+
+    <div id="images">
+        <img src="IMAGES/essaysketch/beauty.jpg" id="beauty">
+        <img src="IMAGES/essaysketch/helloworld.jpg" id="hello-world">
+    </div>
+
     <div id="begin-container">
         <div id="begin-text">
             Begin
             <div class="horizontal-line"></div>
         </div>
-    </div>
-    <div id="images">
-        <img src="IMAGES/essaysketch/beauty.jpg" id="beauty">
-        <img src="IMAGES/essaysketch/helloworld.jpg" id="hello-world">
     </div>
 
     <a href="essaysketch_nonlinearity.html">
