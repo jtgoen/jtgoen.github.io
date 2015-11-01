@@ -1,5 +1,5 @@
 /**
- * Created by John on 10/31/2015.
+ * Created by John Goen
  */
 var circle = document.getElementById("circle");
 var circle_context = circle.getContext("2d");
