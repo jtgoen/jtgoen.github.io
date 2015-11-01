@@ -10,6 +10,13 @@
     font-size: 10vmin;
 }
 
+#nelson {
+    position: absolute;
+    top: 25%;
+    left: 8%;
+    width: 50%;
+}
+
 #kongshan {
     height: auto;
     width: 70vmin;
@@ -31,11 +38,4 @@
     position: absolute;
     top: 90%;
     left: 90%;
-}
-
-#nelson {
-    position: absolute;
-    top: 25%;
-    left: 8%;
-    width: 50%;
 }

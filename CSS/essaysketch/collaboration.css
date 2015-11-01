@@ -1,0 +1,56 @@
+#title-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right : -50%;
+    transform: translate(-50%, -50%);
+}
+
+#title-text {
+    font-family: Tahoma, Helvetica, serif;
+    font-size: 10vmin;
+    letter-spacing: 5vmin;
+}
+
+.landow {
+    position: absolute;
+    width: 25%;
+}
+
+#landow1 {
+    top: 30%;
+    left: 18%;
+}
+
+#landow2{
+    top: 60%;
+    left: 65%;
+}
+
+#circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    margin-right : -50%;
+    transform: translate(-50%, -50%);
+}
+
+.image {
+    position: absolute;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+#student {
+    top: 25%;
+    width: 40vmin;
+    left: 60%;
+}
+
+#toast {
+    top: 75%;
+    width: 45vmin;
+    left: 45%;
+}

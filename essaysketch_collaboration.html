@@ -3,14 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <!--Production JS-->
+    <script src="JS/general/jquery-2.1.4.min.js"></script>
+    <script src="JS/essaysketch/lightbox.min.js" defer></script>
+
+    <!--Personal JS-->
+    <script src="JS/essaysketch/interaction.js" defer></script>
+
+    <!--Production CSS-->
+    <link href="CSS/essaysketch/lightbox.css" rel="stylesheet">
+
+    <!--Personal CSS-->
     <link rel="stylesheet" type="text/css" href="CSS/essaysketch/shared.css">
+    <link rel="stylesheet" type="text/css" href="CSS/essaysketch/collaboration.css">
 </head>
 <body class="essay-sketch">
-Current layout as of Deliverable 3<br>
-Note: Blue text is only blue here to denote that it will expand and contract with clicking of the ellipsis (will be black in actual page). <br>
-Also, greyed out arrows (highlighted green) are active once all text has been viewed.<br>
-Out Links:  <br>
-<a href="essaysketch_innovation.html">Clicked on continue arrow after all text has been viewed</a> <br>
-<img src="IMAGES/essaysketch/collaboration.gif" style="width:100%" frameborder="0"/>
+    <canvas width="1000" height="1000" id="circle"></canvas>
+    <script src="JS/essaysketch/drawCircle.js"></script>
+
+    <div id="title-container">
+        <div id="title-text">
+            Collaboration
+        </div>
+    </div>
+
+    <div class="concept landow" id="landow1">
+        [Landow] There are distinct and interrelated connections...
+    </div>
+
+    <div class="concept landow" id="landow2">
+        ...between the roles of readers and authors
+    </div>
+
+
+    <a href="IMAGES/essaysketch/student.jpg" data-lightbox="student" data-title="Many calligraphers often recreate work previously 'perfected' by thier masters with their own artistic style, thus building upon and puting their mark on generations of art">
+        <img src="IMAGES/essaysketch/student.jpg" id="student" class="image information">
+    </a>
+    <a href="IMAGES/essaysketch/hello-world-toast.jpg" data-lightbox="toast" data-title="Many readers of various programming projects in one language may be compelled to write their own spin on the concept in another language, with many core concepts kept the same, but the changes may help in expressing the ideas of the project in a different way.">
+        <img src="IMAGES/essaysketch/hello-world-toast.jpg" id="toast" class="image information">
+    </a>
+
+    <a href="essaysketch_innovation.html">
+        <img src="IMAGES/essaysketch/fold_bottomright.png" id="bottom-right" class="page-link hidden">
+    </a>
 </body>
 </html>
