@@ -9,8 +9,14 @@
             stroke: blue;
         }
 
-        .node {
+        .tweet {
             stroke: #fff;
+            fill: purple;
+        }
+
+        .hashtag {
+            stroke: #fff;
+            fill: orange;
         }
 
     </style>
@@ -77,7 +83,14 @@
         var node = svg.selectAll(".node")
                 .data(nodes)
                 .enter().append("circle")
-                .attr("class", "node")
+                .attr("class", function(d){
+                    if (d.type == "tweet") {
+                        return "tweet";
+                    }
+                    else {
+                        return "hashtag";
+                    }
+                })
                 .attr("r", function(d){
                     if (d.type == "tweet") {
                         return radius;
