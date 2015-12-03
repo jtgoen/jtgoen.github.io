@@ -66,8 +66,7 @@ h3 {
 p {
   font-size: 6px;
   position: absolute;
-  top: -20px;
-  left: -20px;
+  right: 5px;
 }
 
 .invert {
