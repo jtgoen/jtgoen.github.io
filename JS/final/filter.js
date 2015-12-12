@@ -3,7 +3,6 @@
  */
 
 d3.json("./JSON/rise_up_tweets1000.json", function(tweets){
-    var nodesByName = {};
     var links = {};
 
     var count = 0;
@@ -77,9 +76,12 @@ var filter1 = function() {
 
     if(strUser == "none"){
         //reset filter
+        //update force graph
     }
     else if(strUser == "blm1"){
-        //filter everything but BlackLivesMatter tweets
+        //parse nodesByName array
+        //filter out everything but BlackLivesMatter hashtags
+        //update force graph
     }
     else if(strUser == "blm2"){
         //blm2 tweets
