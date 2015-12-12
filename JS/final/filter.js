@@ -104,19 +104,16 @@ var filter2 = function() {
     if(strUser == "none"){
         //reset filter
     }
-    else if(strUser == "blm1"){
+    else if(strUser == "top1"){
         //filter everything but BlackLivesMatter tweets
     }
-    else if(strUser == "blm2"){
+    else if(strUser == "top5"){
         //blm2 tweets
     }
-    else if(strUser == "blm3"){
+    else if(strUser == "top10"){
         //blm3 tweets
     }
-    else if(strUser == "alm"){
+    else if(strUser == "top20"){
         //alm tweets
-    }
-    else if(strUser == "ruo"){
-        //ruo tweets
     }
 };
