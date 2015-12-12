@@ -2,8 +2,6 @@
  * Created by Jacob on 12/11/2015.
  */
 
-var tweet;
-
 d3.json("./JSON/rise_up_tweets1000.json", function(tweets){
     var nodesByName = {};
     var links = {};
@@ -71,4 +69,52 @@ var update = function () {
         .data(nodes, function (d) {
             return d.id;
         });
+};
+
+var filter1 = function() {
+    var e = document.getElementById("ddl1");
+    var strUser = e.options[e.selectedIndex].value;
+
+    if(strUser == "none"){
+        //reset filter
+    }
+    else if(strUser == "blm1"){
+        //filter everything but BlackLivesMatter tweets
+    }
+    else if(strUser == "blm2"){
+        //blm2 tweets
+    }
+    else if(strUser == "blm3"){
+        //blm3 tweets
+    }
+    else if(strUser == "alm"){
+        //alm tweets
+    }
+    else if(strUser == "ruo"){
+        //ruo tweets
+    }
+};
+
+var filter2 = function() {
+    var e = document.getElementById("ddl2");
+    var strUser = e.options[e.selectedIndex].value;
+
+    if(strUser == "none"){
+        //reset filter
+    }
+    else if(strUser == "blm1"){
+        //filter everything but BlackLivesMatter tweets
+    }
+    else if(strUser == "blm2"){
+        //blm2 tweets
+    }
+    else if(strUser == "blm3"){
+        //blm3 tweets
+    }
+    else if(strUser == "alm"){
+        //alm tweets
+    }
+    else if(strUser == "ruo"){
+        //ruo tweets
+    }
 };

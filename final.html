@@ -30,6 +30,9 @@
 </head>
 <body>
 
+<script type='text/javascript' >
+    var tweet;
+</script>
 <script src="./JS/final/d3.v3.min.js"></script>
 <script src="./JS/final/force_graph.js"></script>
 <script src="./JS/final/filter.js"></script>
@@ -40,7 +43,7 @@
 </body>
 <p1>
     Filter Hashtags:
-    <select>
+    <select id="ddl1">
         <option value="none">None</option>
         <option value="blm1">#BlackLivesMatter</option>
         <option value="blm2">#BLM</option>
@@ -52,7 +55,7 @@
 
 <p2>
     Filter via Retweets:
-    <select>
+    <select id="ddl2">
         <option value="none">None</option>
         <option value="0-10">0-10</option>
         <option value="11-50">11-50</option>
