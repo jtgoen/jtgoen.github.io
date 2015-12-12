@@ -5,6 +5,8 @@ var width = 1920,
     height = 1080,
     radius = 4.5;
 
+var tweet;
+
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
@@ -29,7 +31,7 @@ d3.json("./JSON/rise_up_tweets1000.json", function(tweets){
             break;
         }
         if (tweets.hasOwnProperty(key)) {
-            var tweet = tweets[key];
+            tweet = tweets[key];
             tweet['hashtags'].forEach(function(hashtag){
                 var id = "" + key + "-" + hashtag;
                 links[id] = {
