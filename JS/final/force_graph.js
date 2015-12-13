@@ -5,13 +5,13 @@ var width = window.innerWidth*.75,
     height = window.innerHeight,
     radius = 4.5;
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 var tweet;
-=======
+//=======
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
     .on("zoom", zoomed);
->>>>>>> refs/remotes/origin/master
+//>>>>>>> refs/remotes/origin/master
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
