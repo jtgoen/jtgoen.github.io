@@ -99,19 +99,38 @@ d3.json("./JSON/rise_up_tweets1000.json", function(tweets){
         .style("fill", "Black")
         .style("visibility", "hidden");
 
+    var timeout = null;
     function mouseover() {
-        d3.select(this).style("stroke", "red");
-        d3.select(this).moveToFront();
-        if (d3.select(this).datum().type == "hashtag"){
-            d3.select(this).style("stroke", "red");
+        var self = this;
+        d3.select(self).style("stroke", "red");
+        d3.select(self).moveToFront();
+        if (d3.select(self).datum().type == "hashtag"){
+            d3.select(self).style("stroke", "red");
             console.log("here");
-            d3.select(this).select("text").style("visibility", "visible");
+            d3.select(self).select("text").style("visibility", "visible");
+        }
+        else {
+            timeout = setTimeout(function(){
+                var myNode = document.getElementById("tweetview");
+                while (myNode.lastChild) {
+                    myNode.removeChild(myNode.lastChild);
+                }
+                twttr.widgets.createTweet(
+                    d3.select(self).datum().id,
+                    document.getElementById('tweetview'),
+                    {
+                        theme: 'dark'
+                    }
+                );
+            }, 500);
+
         }
     }
 
     function mouseout() {
         d3.select(this).style("stroke", "#fff");
         d3.select(this).select("text").style("visibility", "hidden");
+        clearTimeout(timeout);
     }
 
     // Start the force layout.
