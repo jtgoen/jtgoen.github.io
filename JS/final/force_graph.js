@@ -30,7 +30,6 @@ function dragstart(d) {         //--
 
 function dragend(d){
     var self = this;
-    console.log("made it here");
     document.getElementById("fixationbutton").addEventListener("click", function(){
         d.fixed = false;
         d3.select(self).classed("fixed", false);
@@ -112,14 +111,40 @@ d3.json("./JSON/rise_up_tweets1000.json", function(tweets){
         else {
             timeout = setTimeout(function(){
                 var tweetview = document.getElementById("sidebar");
-                tweetview.removeChild(tweetview.lastChild);
-                twttr.widgets.createTweet(
-                    d3.select(self).datum().id,
-                    document.getElementById('sidebar'),
-                    {
-                        theme: 'dark'
-                    }
-                );
+                var sidebar = $("#sidebar");
+                if (sidebar.find(":last-child").hasClass("twitter-tweet-rendered")){
+                    console.log("tweet must be removed.");
+                    tweetview.removeChild(tweetview.lastChild);
+                }
+                $("#no_tw_info").remove();
+
+                var tweet_promise = new Promise(function(resolve, reject){
+                    twttr.widgets.createTweet(
+                        d3.select(self).datum().id,
+                        document.getElementById('sidebar'),
+                        {
+                            theme: 'dark'
+                        }
+                    );
+                    setTimeout(function(){
+                        if ($("#sidebar").find(":last-child").hasClass("twitter-tweet-rendered")){
+                            resolve("It's all good.");
+                        }
+                        else {
+                            var errstr = "No tweet found for id: " + d3.select(self).datum().id;
+                            reject(errstr);
+                        }
+                    },1000);
+                });
+
+                tweet_promise.then(function(result) {
+                }, function(err) {
+                    jQuery('<div/>', {
+                        id: 'no_tw_info',
+                        text: err
+                    }).appendTo('#sidebar');
+                });
+
             }, 500);
 
         }
