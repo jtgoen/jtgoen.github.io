@@ -1,22 +1,44 @@
 /**
  * Created by jtgoen on 12/4/15.
  */
-var width = 1920,
-    height = 1080,
+var width = window.innerWidth*.75,
+    height = window.innerHeight,
     radius = 4.5;
+
+var zoom = d3.behavior.zoom()
+    .scaleExtent([1, 10])
+    .on("zoom", zoomed);
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .call(zoom)
+    .on("dblclick.zoom", null);
 
 var force = d3.layout.force()
-    .size([width, height]);
+    .size([width, height])
+    .gravity(0.15);
 
-var drag = force.drag()         //TODO may need to take this out if I can't reset the fixedness of nodes
-    .on("dragstart", dragstart);//
+var drag = force.drag()
+    .on("dragstart", dragstart)
+    .on("dragend", dragend);//
 function dragstart(d) {         //--
+    console.log(d);
     d.fixed = true;
     d3.select(this).classed("fixed", true);
+}
+
+function dragend(d){
+    var self = this;
+    console.log("made it here");
+    document.getElementById("fixationbutton").addEventListener("click", function(){
+        d.fixed = false;
+        d3.select(self).classed("fixed", false);
+    })
+}
+
+function zoomed() {
+    svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 }
 
 d3.json("./JSON/rise_up_tweets1000.json", function(tweets){
@@ -77,19 +99,38 @@ d3.json("./JSON/rise_up_tweets1000.json", function(tweets){
         .style("fill", "Black")
         .style("visibility", "hidden");
 
+    var timeout = null;
     function mouseover() {
-        d3.select(this).style("stroke", "red");
-        d3.select(this).moveToFront();
-        if (d3.select(this).datum().type == "hashtag"){
-            d3.select(this).style("stroke", "red");
+        var self = this;
+        d3.select(self).style("stroke", "red");
+        d3.select(self).moveToFront();
+        if (d3.select(self).datum().type == "hashtag"){
+            d3.select(self).style("stroke", "red");
             console.log("here");
-            d3.select(this).select("text").style("visibility", "visible");
+            d3.select(self).select("text").style("visibility", "visible");
+        }
+        else {
+            timeout = setTimeout(function(){
+                var myNode = document.getElementById("tweetview");
+                while (myNode.lastChild) {
+                    myNode.removeChild(myNode.lastChild);
+                }
+                twttr.widgets.createTweet(
+                    d3.select(self).datum().id,
+                    document.getElementById('tweetview'),
+                    {
+                        theme: 'dark'
+                    }
+                );
+            }, 500);
+
         }
     }
 
     function mouseout() {
         d3.select(this).style("stroke", "#fff");
         d3.select(this).select("text").style("visibility", "hidden");
+        clearTimeout(timeout);
     }
 
     // Start the force layout.
@@ -99,7 +140,19 @@ d3.json("./JSON/rise_up_tweets1000.json", function(tweets){
         .on("tick", tick)
         .start();
 
+    window.onresize = function() {
+        tick();
+    };
+
     function tick() {
+        width = window.innerWidth*.75;
+        height = window.innerHeight;
+        svg
+            .attr("width", width)
+            .attr("height", height);
+
+        force.size([width, height]);
+
         link.attr("x1", function(d) { return d.source.x; })
             .attr("y1", function(d) { return d.source.y; })
             .attr("x2", function(d) { return d.target.x; })

@@ -4,6 +4,7 @@
     <title>Final Project Prototype</title>
     <link type="text/css" rel="stylesheet" href="./CSS/final/style.css">
     <script src="./JS/general/jquery-2.1.4.min.js"></script>
+    <script sync src="https://platform.twitter.com/widgets.js"></script>
     <style type="text/css">
 
         .link {
@@ -36,7 +37,7 @@
     Final Project Prototype. Description is <a href="final-description.html">here</a>
 </h2>
 </body>
-<p>
+<p id="sidebar">
     Filter Hashtags:
     <select>
         <option value="none">None</option>
@@ -46,6 +47,8 @@
         <option value="alm">#AllLivesMatter</option>
         <option value="ruo">#RiseUpOctober</option>
     </select>
+    <button id="fixationbutton">Reset Fixation</button>
+    <div id="tweetview"></div>
 </p>
 <p>
     Filter ____:
