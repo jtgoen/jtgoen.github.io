@@ -111,13 +111,11 @@ d3.json("./JSON/rise_up_tweets1000.json", function(tweets){
         }
         else {
             timeout = setTimeout(function(){
-                var myNode = document.getElementById("tweetview");
-                while (myNode.lastChild) {
-                    myNode.removeChild(myNode.lastChild);
-                }
+                var tweetview = document.getElementById("sidebar");
+                tweetview.removeChild(tweetview.lastChild);
                 twttr.widgets.createTweet(
                     d3.select(self).datum().id,
-                    document.getElementById('tweetview'),
+                    document.getElementById('sidebar'),
                     {
                         theme: 'dark'
                     }
