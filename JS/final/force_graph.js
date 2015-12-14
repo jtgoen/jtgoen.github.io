@@ -5,13 +5,11 @@ var width = window.innerWidth*.75,
     height = window.innerHeight,
     radius = 4.5;
 
-var tweet;
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
     .on("zoom", zoomed);
 
-var svg = d3.select("body")
-    .append("svg")
+var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
     .call(zoom)
@@ -41,6 +39,7 @@ function dragend(d){
 function zoomed() {
     svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 }
+
 
 d3.json("./JSON/rise_up_tweets1000.json", function (tweets) {
 
@@ -258,27 +257,26 @@ function drawGraph(){
 
 
     var timeout = null;
-
     function mouseover() {
         var self = this;
         d3.select(self).style("stroke", "red");
         d3.select(self).moveToFront();
-        if (d3.select(self).datum().type == "hashtag") {
+        if (d3.select(self).datum().type == "hashtag"){
             d3.select(self).style("stroke", "red");
             console.log("here");
             d3.select(self).select("text").style("visibility", "visible");
         }
         else {
-            timeout = setTimeout(function () {
+            timeout = setTimeout(function(){
                 var tweetview = document.getElementById("sidebar");
                 var sidebar = $("#sidebar");
-                if (sidebar.find(":last-child").hasClass("twitter-tweet-rendered")) {
+                if (sidebar.find(":last-child").hasClass("twitter-tweet-rendered")){
                     console.log("tweet must be removed.");
                     tweetview.removeChild(tweetview.lastChild);
                 }
                 $("#no_tw_info").remove();
 
-                var tweet_promise = new Promise(function (resolve, reject) {
+                var tweet_promise = new Promise(function(resolve, reject){
                     twttr.widgets.createTweet(
                         d3.select(self).datum().id,
                         document.getElementById('sidebar'),
@@ -286,19 +284,19 @@ function drawGraph(){
                             theme: 'dark'
                         }
                     );
-                    setTimeout(function () {
-                        if ($("#sidebar").find(":last-child").hasClass("twitter-tweet-rendered")) {
+                    setTimeout(function(){
+                        if ($("#sidebar").find(":last-child").hasClass("twitter-tweet-rendered")){
                             resolve("It's all good.");
                         }
                         else {
                             var errstr = "No tweet found for id: " + d3.select(self).datum().id;
                             reject(errstr);
                         }
-                    }, 1000);
+                    },1000);
                 });
 
-                tweet_promise.then(function (result) {
-                }, function (err) {
+                tweet_promise.then(function(result) {
+                }, function(err) {
                     jQuery('<div/>', {
                         id: 'no_tw_info',
                         text: err
@@ -315,6 +313,7 @@ function drawGraph(){
         d3.select(this).select("text").style("visibility", "hidden");
         clearTimeout(timeout);
     }
+
 
 // Start the force layout.
     force
@@ -372,44 +371,4 @@ function drawGraph(){
         return nodesByName[name] || (nodesByName[name] = {id: name, type: type});
     }
 }
-
-/**
- * Created by Jacob on 12/11/2015.
- */
-/*
-var vis = d3.select("body")
-    .append("svg:svg")
-    .attr("width", w)
-    .attr("height", h)
-    .attr("id", "svg")
-    .attr("pointer-events", "all")
-    .attr("viewBox", "0 0 " + w + " " + h)
-    .attr("perserveAspectRatio", "xMinYMid")
-    .append('svg:g');
-
-var update = function () {
-    var link = vis.selectAll("line")
-        .data(links, function (d) {
-            return d.source.id + "-" + d.target.id;
-        });
-
-    link.enter().append("line")
-        .attr("id", function (d) {
-            return d.source.id + "-" + d.target.id;
-        })
-        .attr("stroke-width", function (d) {
-            return d.value / 10;
-        })
-        .attr("class", "link");
-    link.append("title")
-        .text(function (d) {
-            return d.value;
-        });
-    link.exit().remove();
-
-    var node = vis.selectAll("g.node")
-        .data(nodes, function (d) {
-            return d.id;
-        });
-};*/
 

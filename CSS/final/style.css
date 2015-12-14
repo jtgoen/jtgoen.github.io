@@ -60,6 +60,13 @@ h3 {
   font-size: 18px;
 }
 
+p {
+  font-size: 12px;
+  position: absolute;
+  right: 20px;
+  top: 0px;
+}
+
 p1 {
   font-size: 12px;
   position: absolute;
@@ -71,27 +78,14 @@ p2 {
   font-size: 12px;
   position: absolute;
   right: 20px;
-  top: 120px;
-}
-
-p3 {
-  font-size: 12px;
-  position: absolute;
-  right: 20px;
-  top: 220px;
+  top: 300px;
 }
 
 p4 {
     font-size: 12px;
     position: absolute;
     right: 20px;
-    top: 60px;
-}
-
-input {
-  position: absolute;
-  right:20px;
-  top: 240px;
+    top: 600px;
 }
 
 .invert {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0066)https://mbostock.github.io/d3/talk/20111116/force-collapsible.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Final Project Prototype</title>
+    <title>Final Project</title>
     <link type="text/css" rel="stylesheet" href="./CSS/final/style.css">
     <script src="./JS/general/jquery-2.1.4.min.js"></script>
     <script sync src="https://platform.twitter.com/widgets.js"></script>
@@ -46,7 +46,6 @@
                 //reset filter
                 nodes = d3.values(nodesByName);
                 //update force graph
-
                 drawGraph();
             }
             else if (e == "blm1") {
@@ -151,9 +150,8 @@
 </h2>
 </body>
 
-<!-- <p id="sidebar"> -->
+<p id="sidebar">
 
-<p1>
     Filter Hashtags:
     <select id="ddl1">>
         <option value="none">None</option>
@@ -163,24 +161,22 @@
         <option value="alm">#AllLivesMatter</option>
         <option value="ruo">#RiseUpOctober</option>
     </select>
-</p1>
 
-<p4>
-    **Reset the graph before attempting a new filter <br>
-    by returning the drop down menu to None.
-</p4>
-
-<p2>
     Filter by Color:
     <select id="ddl2">
         <option value="none">None</option>
         <option value="purp">Purple</option>
         <option value="yel">Yellow</option>
     </select>
-</p2>
+
 
 <button id="fixationbutton">Reset Fixation</button>
 
-<!-- </p> -->
+</p>
+
+<p4>
+    **Reset the graph before attempting a new filter <br>
+    by returning the drop down menu to None.
+</p4>
 
 </html>
