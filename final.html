@@ -35,6 +35,7 @@
     var nodesByName = {};
     var links = {};
     var nodes;
+    var weight = [];
 
     window.onload=function() {
         document.getElementById("ddl1").onchange = function () {
@@ -107,19 +108,31 @@
         document.getElementById("ddl2").onchange = function () {
             var e = this.value;
             if (e == "none") {
+                d3.selectAll("svg > *").remove();
                 //reset filter
+                nodes = d3.values(nodesByName);
+                //update force graph
+                drawGraph();
             }
-            else if (e == "top1") {
-                //filter everything but BlackLivesMatter tweets
+            else if (e == "purp") {
+                d3.selectAll("svg > *").remove();
+                var i = nodes.length;
+                while(i--){
+                    if (nodes[i].type != "hashtag") {
+                        nodes.splice(i, 1);
+                    }
+                }
+                drawGraph();
             }
-            else if (e == "top5") {
-                //blm2 tweets
-            }
-            else if (e == "top10") {
-                //blm3 tweets
-            }
-            else if (e == "top20") {
-                //alm tweets
+            else if (e == "yel") {
+                d3.selectAll("svg > *").remove();
+                var i = nodes.length;
+                while(i--) {
+                    if (nodes[i].type != "tweet") {
+                        nodes.splice(i, 1);
+                    }
+                }
+                drawGraph();
             }
         }
     }
@@ -129,7 +142,7 @@
 <script src="./JS/final/force_graph.js"></script>
 
 <h2 id="descriptor">
-    Final Project Prototype. Description is <a href="final-description.html">here</a>
+    Final Project. Description is <a href="final-description.html">here</a>.
 </h2>
 </body>
 
@@ -147,20 +160,19 @@
     </select>
 </p1>
 
+<p4>
+    **Reset the graph before attempting a new filter <br>
+    by returning the drop down menu to None.
+</p4>
+
 <p2>
-    Filter by Popularity:
+    Filter by Color:
     <select id="ddl2">
         <option value="none">None</option>
-        <option value="top1">Top 1</option>
-        <option value="top5">Top 5</option>
-        <option value="top10">Top 10</option>
-        <option value="top20">Top 20</option>
+        <option value="purp">Purple</option>
+        <option value="yel">Yellow</option>
     </select>
 </p2>
-
-<p3>
-    Filter via Time:
-</p3>
 
 <button id="fixationbutton">Reset Fixation</button>
 

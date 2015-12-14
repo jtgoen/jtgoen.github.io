@@ -201,6 +201,7 @@ d3.json("./JSON/rise_up_tweets1000.json", function (tweets) {
                 return radius;
             }
             else {
+                weight = radius * (1 + Math.log(d.weight));
                 return radius * (1 + Math.log(d.weight));
             }
         });
