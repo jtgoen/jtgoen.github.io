@@ -41,24 +41,25 @@
             var e = this.value;
 
             if (e == "none") {
+                d3.selectAll("svg > *").remove();
                 //reset filter
                 nodes = d3.values(nodesByName);
                 //update force graph
 
-
+                drawGraph();
             }
             else if (e == "blm1") {
+                d3.selectAll("svg > *").remove();
                 for (i = 0; i < nodes.length; i++) {
                     if (nodes[i].name != "BlackLivesMatter") {
                         nodes.splice(i, 1);
                     }
                 }
-                alert(nodes.length);
                 //update
-
-
+                drawGraph();
             }
             else if (e == "blm2") {
+                d3.selectAll("svg > *").remove();
                 //blm2 tweets
                 for (var i = 0; i < nodes.length; i++) {
                     if (nodes[i].name != "BLM") {
@@ -66,8 +67,10 @@
                     }
                 }
                 //update
+                drawGraph();
             }
             else if (e == "blm3") {
+                d3.selectAll("svg > *").remove();
                 //blm3 tweets
                 for (var i = 0; i < nodes.length; i++) {
                     if (nodes[i].name != "blacklivesmatter") {
@@ -75,8 +78,10 @@
                     }
                 }
                 //update
+                drawGraph()
             }
             else if (e == "alm") {
+                d3.selectAll("svg > *").remove();
                 //alm tweets
                 for (var i = 0; i < nodes.length; i++) {
                     if (nodes[i].name != "AllLivesMatter") {
@@ -84,8 +89,10 @@
                     }
                 }
                 //update
+                drawGraph();
             }
             else if (e == "ruo") {
+                d3.selectAll("svg > *").remove();
                 //ruo tweets
                 for (var i = 0; i < nodes.length; i++) {
                     if (nodes[i].name != "RiseUpOctober") {
@@ -93,8 +100,9 @@
                     }
                 }
                 //update
+                drawGraph();
             }
-        }
+        };
 
         document.getElementById("ddl2").onchange = function () {
             var e = this.value;
@@ -153,8 +161,6 @@
 <p3>
     Filter via Time:
 </p3>
-
-<input type="range" id="myRange" value="90">
 
 <button id="fixationbutton">Reset Fixation</button>
 

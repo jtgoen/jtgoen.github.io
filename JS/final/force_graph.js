@@ -10,7 +10,8 @@ var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
     .on("zoom", zoomed);
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("body")
+    .append("svg")
     .attr("width", width)
     .attr("height", height)
     .call(zoom)
@@ -41,16 +42,16 @@ function zoomed() {
     svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 }
 
-d3.json("./JSON/rise_up_tweets1000.json", function drawGraph(tweets){
+d3.json("./JSON/rise_up_tweets1000.json", function (tweets) {
 
     var count = 0;
     for (var key in tweets) {
-        if (count >= 500){
+        if (count >= 500) {
             break;
         }
         if (tweets.hasOwnProperty(key)) {
             var tweet = tweets[key];
-            tweet['hashtags'].forEach(function(hashtag){
+            tweet['hashtags'].forEach(function (hashtag) {
                 var id = "" + key + "-" + hashtag;
                 links[id] = {
                     "id": id,
@@ -62,21 +63,21 @@ d3.json("./JSON/rise_up_tweets1000.json", function drawGraph(tweets){
         count++;
     }
 
-    // Extract the array of nodes from the map by name.
+// Extract the array of nodes from the map by name.
     nodes = d3.values(nodesByName);
     var linksyeah = d3.values(links);
 
-    // Create the link lines.
+// Create the link lines.
     var link = svg.selectAll(".link")
         .data(linksyeah)
         .enter().append("line")
         .attr("class", "link");
 
-    // Create the node circles.
+// Create the node circles.
     var node = svg.selectAll(".node")
         .data(nodes)
         .enter().append('g')
-        .attr("class", function(d){
+        .attr("class", function (d) {
             if (d.type == "tweet") {
                 return "tweet";
             }
@@ -93,33 +94,35 @@ d3.json("./JSON/rise_up_tweets1000.json", function drawGraph(tweets){
     node.append("text")
         .attr("dx", 12)
         .attr("dy", ".35em")
-        .text(function(d) { return d.id })
+        .text(function (d) {
+            return d.id
+        })
         .style("fill", "Black")
         .style("visibility", "hidden");
 
 
-
     var timeout = null;
+
     function mouseover() {
         var self = this;
         d3.select(self).style("stroke", "red");
         d3.select(self).moveToFront();
-        if (d3.select(self).datum().type == "hashtag"){
+        if (d3.select(self).datum().type == "hashtag") {
             d3.select(self).style("stroke", "red");
             console.log("here");
             d3.select(self).select("text").style("visibility", "visible");
         }
         else {
-            timeout = setTimeout(function(){
+            timeout = setTimeout(function () {
                 var tweetview = document.getElementById("sidebar");
                 var sidebar = $("#sidebar");
-                if (sidebar.find(":last-child").hasClass("twitter-tweet-rendered")){
+                if (sidebar.find(":last-child").hasClass("twitter-tweet-rendered")) {
                     console.log("tweet must be removed.");
                     tweetview.removeChild(tweetview.lastChild);
                 }
                 $("#no_tw_info").remove();
 
-                var tweet_promise = new Promise(function(resolve, reject){
+                var tweet_promise = new Promise(function (resolve, reject) {
                     twttr.widgets.createTweet(
                         d3.select(self).datum().id,
                         document.getElementById('sidebar'),
@@ -127,19 +130,19 @@ d3.json("./JSON/rise_up_tweets1000.json", function drawGraph(tweets){
                             theme: 'dark'
                         }
                     );
-                    setTimeout(function(){
-                        if ($("#sidebar").find(":last-child").hasClass("twitter-tweet-rendered")){
+                    setTimeout(function () {
+                        if ($("#sidebar").find(":last-child").hasClass("twitter-tweet-rendered")) {
                             resolve("It's all good.");
                         }
                         else {
                             var errstr = "No tweet found for id: " + d3.select(self).datum().id;
                             reject(errstr);
                         }
-                    },1000);
+                    }, 1000);
                 });
 
-                tweet_promise.then(function(result) {
-                }, function(err) {
+                tweet_promise.then(function (result) {
+                }, function (err) {
                     jQuery('<div/>', {
                         id: 'no_tw_info',
                         text: err
@@ -157,19 +160,19 @@ d3.json("./JSON/rise_up_tweets1000.json", function drawGraph(tweets){
         clearTimeout(timeout);
     }
 
-    // Start the force layout.
+// Start the force layout.
     force
         .nodes(nodes)
         .links(linksyeah)
         .on("tick", tick)
         .start();
 
-    window.onresize = function() {
+    window.onresize = function () {
         tick();
     };
 
     function tick() {
-        width = window.innerWidth*.75;
+        width = window.innerWidth * .75;
         height = window.innerHeight;
         svg
             .attr("width", width)
@@ -177,24 +180,34 @@ d3.json("./JSON/rise_up_tweets1000.json", function drawGraph(tweets){
 
         force.size([width, height]);
 
-        link.attr("x1", function(d) { return d.source.x; })
-            .attr("y1", function(d) { return d.source.y; })
-            .attr("x2", function(d) { return d.target.x; })
-            .attr("y2", function(d) { return d.target.y; });
+        link.attr("x1", function (d) {
+                return d.source.x;
+            })
+            .attr("y1", function (d) {
+                return d.source.y;
+            })
+            .attr("x2", function (d) {
+                return d.target.x;
+            })
+            .attr("y2", function (d) {
+                return d.target.y;
+            });
 
-        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-        node.select("circle").attr("r", function(d){
+        node.attr("transform", function (d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+        node.select("circle").attr("r", function (d) {
             if (d.type == "tweet") {
                 return radius;
             }
             else {
-                return radius * (1+Math.log(d.weight));
+                return radius * (1 + Math.log(d.weight));
             }
         });
     }
 
-    d3.selection.prototype.moveToFront = function() {
-        return this.each(function(){
+    d3.selection.prototype.moveToFront = function () {
+        return this.each(function () {
             this.parentNode.appendChild(this);
         });
     };
@@ -202,11 +215,162 @@ d3.json("./JSON/rise_up_tweets1000.json", function drawGraph(tweets){
     function nodeByName(name, type) {
         return nodesByName[name] || (nodesByName[name] = {id: name, type: type});
     }
-
-
 });
 
+function drawGraph(){
+    // Extract the array of nodes from the map by name.
+    // nodes = d3.values(nodesByName);
+    var linksyeah = d3.values(links);
 
+    // Create the link lines.
+    var link = svg.selectAll(".link")
+        .data(linksyeah)
+        .enter().append("line")
+        .attr("class", "link");
+
+    // Create the node circles.
+    var node = svg.selectAll(".node")
+        .data(nodes)
+        .enter().append('g')
+        .attr("class", function (d) {
+            if (d.type == "tweet") {
+                return "tweet";
+            }
+            else {
+                return "hashtag";
+            }
+        })
+        .on("mouseover", mouseover)
+        .on("mouseout", mouseout)
+        .call(force.drag);
+
+    node.append("circle");
+
+    node.append("text")
+        .attr("dx", 12)
+        .attr("dy", ".35em")
+        .text(function (d) {
+            return d.id
+        })
+        .style("fill", "Black")
+        .style("visibility", "hidden");
+
+
+    var timeout = null;
+
+    function mouseover() {
+        var self = this;
+        d3.select(self).style("stroke", "red");
+        d3.select(self).moveToFront();
+        if (d3.select(self).datum().type == "hashtag") {
+            d3.select(self).style("stroke", "red");
+            console.log("here");
+            d3.select(self).select("text").style("visibility", "visible");
+        }
+        else {
+            timeout = setTimeout(function () {
+                var tweetview = document.getElementById("sidebar");
+                var sidebar = $("#sidebar");
+                if (sidebar.find(":last-child").hasClass("twitter-tweet-rendered")) {
+                    console.log("tweet must be removed.");
+                    tweetview.removeChild(tweetview.lastChild);
+                }
+                $("#no_tw_info").remove();
+
+                var tweet_promise = new Promise(function (resolve, reject) {
+                    twttr.widgets.createTweet(
+                        d3.select(self).datum().id,
+                        document.getElementById('sidebar'),
+                        {
+                            theme: 'dark'
+                        }
+                    );
+                    setTimeout(function () {
+                        if ($("#sidebar").find(":last-child").hasClass("twitter-tweet-rendered")) {
+                            resolve("It's all good.");
+                        }
+                        else {
+                            var errstr = "No tweet found for id: " + d3.select(self).datum().id;
+                            reject(errstr);
+                        }
+                    }, 1000);
+                });
+
+                tweet_promise.then(function (result) {
+                }, function (err) {
+                    jQuery('<div/>', {
+                        id: 'no_tw_info',
+                        text: err
+                    }).appendTo('#sidebar');
+                });
+
+            }, 500);
+
+        }
+    }
+
+    function mouseout() {
+        d3.select(this).style("stroke", "#fff");
+        d3.select(this).select("text").style("visibility", "hidden");
+        clearTimeout(timeout);
+    }
+
+// Start the force layout.
+    force
+        .nodes(nodes)
+        .links(linksyeah)
+        .on("tick", tick)
+        .start();
+
+    window.onresize = function () {
+        tick();
+    };
+
+    function tick() {
+        width = window.innerWidth * .75;
+        height = window.innerHeight;
+        svg
+            .attr("width", width)
+            .attr("height", height);
+
+        force.size([width, height]);
+
+        link.attr("x1", function (d) {
+                return d.source.x;
+            })
+            .attr("y1", function (d) {
+                return d.source.y;
+            })
+            .attr("x2", function (d) {
+                return d.target.x;
+            })
+            .attr("y2", function (d) {
+                return d.target.y;
+            });
+
+        node.attr("transform", function (d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+        node.select("circle").attr("r", function (d) {
+            if (d.type == "tweet") {
+                return radius;
+            }
+            else {
+                return radius * (1 + Math.log(d.weight));
+            }
+        });
+    }
+
+    d3.selection.prototype.moveToFront = function () {
+        return this.each(function () {
+            this.parentNode.appendChild(this);
+        });
+    };
+
+    function nodeByName(name, type) {
+        return nodesByName[name] || (nodesByName[name] = {id: name, type: type});
+    }
+}
 
 /**
  * Created by Jacob on 12/11/2015.
