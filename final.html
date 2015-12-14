@@ -52,8 +52,9 @@
             else if (e == "blm1") {
                 d3.selectAll("svg > *").remove();
                 for (i = 0; i < nodes.length; i++) {
-                    if (nodes[i].name != "BlackLivesMatter") {
+                    if (nodes[i].id != "BlackLivesMatter") {
                         nodes.splice(i, 1);
+                        i--;
                     }
                 }
                 //update
@@ -63,8 +64,9 @@
                 d3.selectAll("svg > *").remove();
                 //blm2 tweets
                 for (var i = 0; i < nodes.length; i++) {
-                    if (nodes[i].name != "BLM") {
+                    if (nodes[i].id != "BLM") {
                         nodes.splice(i, 1);
+                        i--;
                     }
                 }
                 //update
@@ -74,8 +76,9 @@
                 d3.selectAll("svg > *").remove();
                 //blm3 tweets
                 for (var i = 0; i < nodes.length; i++) {
-                    if (nodes[i].name != "blacklivesmatter") {
+                    if (nodes[i].id != "blacklivesmatter") {
                         nodes.splice(i, 1);
+                        i--;
                     }
                 }
                 //update
@@ -85,8 +88,9 @@
                 d3.selectAll("svg > *").remove();
                 //alm tweets
                 for (var i = 0; i < nodes.length; i++) {
-                    if (nodes[i].name != "AllLivesMatter") {
+                    if (nodes[i].id != "AllLivesMatter") {
                         nodes.splice(i, 1);
+                        i--;
                     }
                 }
                 //update
@@ -96,8 +100,9 @@
                 d3.selectAll("svg > *").remove();
                 //ruo tweets
                 for (var i = 0; i < nodes.length; i++) {
-                    if (nodes[i].name != "RiseUpOctober") {
+                    if (nodes[i].id != "RiseUpOctober") {
                         nodes.splice(i, 1);
+                        i--;
                     }
                 }
                 //update
