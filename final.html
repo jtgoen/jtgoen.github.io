@@ -51,7 +51,7 @@
             else if (e == "blm1") {
                 d3.selectAll("svg > *").remove();
                 for (i = 0; i < nodes.length; i++) {
-                    if (nodes[i].id != "BlackLivesMatter") {
+                    if (nodes[i].index != 1) {
                         nodes.splice(i, 1);
                         i--;
                     }
@@ -63,10 +63,10 @@
                 d3.selectAll("svg > *").remove();
                 //blm2 tweets
                 for (var i = 0; i < nodes.length; i++) {
-                    if (nodes[i].id != "BLM") {
-                        nodes.splice(i, 1);
-                        i--;
-                    }
+                    if (nodes[i].index == 1 || nodes[i].index == 8 || nodes[i].index == 70) {
+
+                    }else {nodes.splice(i, 1);
+                        i--;}
                 }
                 //update
                 drawGraph();
@@ -75,10 +75,10 @@
                 d3.selectAll("svg > *").remove();
                 //blm3 tweets
                 for (var i = 0; i < nodes.length; i++) {
-                    if (nodes[i].id != "blacklivesmatter") {
-                        nodes.splice(i, 1);
-                        i--;
-                    }
+                    if (nodes[i].index == 1 || nodes[i].index == 8 || nodes[i].index == 70 || nodes[i].index == 49 || nodes[i].index == 3) {
+
+                    }else {nodes.splice(i, 1);
+                        i--;}
                 }
                 //update
                 drawGraph()
@@ -87,22 +87,10 @@
                 d3.selectAll("svg > *").remove();
                 //alm tweets
                 for (var i = 0; i < nodes.length; i++) {
-                    if (nodes[i].id != "AllLivesMatter") {
-                        nodes.splice(i, 1);
-                        i--;
-                    }
-                }
-                //update
-                drawGraph();
-            }
-            else if (e == "ruo") {
-                d3.selectAll("svg > *").remove();
-                //ruo tweets
-                for (var i = 0; i < nodes.length; i++) {
-                    if (nodes[i].id != "RiseUpOctober") {
-                        nodes.splice(i, 1);
-                        i--;
-                    }
+                    if (nodes[i].index == 122 || nodes[i].index == 28 || nodes[i].index == 8 || nodes[i].index == 1 || nodes[i].index == 8 || nodes[i].index == 70 || nodes[i].index == 49 || nodes[i].index == 60) {
+
+                    }else {nodes.splice(i, 1);
+                        i--;}
                 }
                 //update
                 drawGraph();
@@ -152,14 +140,13 @@
 
 <p id="sidebar">
 
-    Filter Hashtags:
+    Filter Hashtags by Popularity:
     <select id="ddl1">>
         <option value="none">None</option>
-        <option value="blm1">#BlackLivesMatter</option>
-        <option value="blm2">#BLM</option>
-        <option value="blm3">#blacklivesmatter</option>
-        <option value="alm">#AllLivesMatter</option>
-        <option value="ruo">#RiseUpOctober</option>
+        <option value="blm1">Top 1</option>
+        <option value="blm2">Top 3</option>
+        <option value="blm3">Top 5</option>
+        <option value="alm">Top 8</option>
     </select>
 
     Filter by Color:
