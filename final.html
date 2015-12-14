@@ -31,6 +31,92 @@
 </head>
 <body>
 
+<script>
+    var nodesByName = {};
+    var links = {};
+    var nodes;
+
+    window.onload=function() {
+        document.getElementById("ddl1").onchange = function () {
+            var e = this.value;
+
+            if (e == "none") {
+                //reset filter
+                nodes = d3.values(nodesByName);
+                //update force graph
+
+
+            }
+            else if (e == "blm1") {
+                for (i = 0; i < nodes.length; i++) {
+                    if (nodes[i].name != "BlackLivesMatter") {
+                        nodes.splice(i, 1);
+                    }
+                }
+                alert(nodes.length);
+                //update
+
+
+            }
+            else if (e == "blm2") {
+                //blm2 tweets
+                for (var i = 0; i < nodes.length; i++) {
+                    if (nodes[i].name != "BLM") {
+                        nodes.splice(i, 1);
+                    }
+                }
+                //update
+            }
+            else if (e == "blm3") {
+                //blm3 tweets
+                for (var i = 0; i < nodes.length; i++) {
+                    if (nodes[i].name != "blacklivesmatter") {
+                        nodes.splice(i, 1);
+                    }
+                }
+                //update
+            }
+            else if (e == "alm") {
+                //alm tweets
+                for (var i = 0; i < nodes.length; i++) {
+                    if (nodes[i].name != "AllLivesMatter") {
+                        nodes.splice(i, 1);
+                    }
+                }
+                //update
+            }
+            else if (e == "ruo") {
+                //ruo tweets
+                for (var i = 0; i < nodes.length; i++) {
+                    if (nodes[i].name != "RiseUpOctober") {
+                        nodes.splice(i, 1);
+                    }
+                }
+                //update
+            }
+        }
+
+        document.getElementById("ddl2").onchange = function () {
+            var e = this.value;
+            if (e == "none") {
+                //reset filter
+            }
+            else if (e == "top1") {
+                //filter everything but BlackLivesMatter tweets
+            }
+            else if (e == "top5") {
+                //blm2 tweets
+            }
+            else if (e == "top10") {
+                //blm3 tweets
+            }
+            else if (e == "top20") {
+                //alm tweets
+            }
+        }
+    }
+</script>
+
 <script src="./JS/final/d3.v3.min.js"></script>
 <script src="./JS/final/force_graph.js"></script>
 
@@ -39,9 +125,9 @@
 </h2>
 </body>
 
-<p1>
-    Filter by Hashtag:
 <!-- <p id="sidebar"> -->
+
+<p1>
     Filter Hashtags:
     <select id="ddl1">>
         <option value="none">None</option>

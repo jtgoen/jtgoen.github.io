@@ -5,13 +5,10 @@ var width = window.innerWidth*.75,
     height = window.innerHeight,
     radius = 4.5;
 
-//<<<<<<< HEAD
 var tweet;
-//=======
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
     .on("zoom", zoomed);
-//>>>>>>> refs/remotes/origin/master
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
@@ -44,9 +41,7 @@ function zoomed() {
     svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 }
 
-d3.json("./JSON/rise_up_tweets1000.json", function(tweets){
-    var nodesByName = {};
-    var links = {};
+d3.json("./JSON/rise_up_tweets1000.json", function drawGraph(tweets){
 
     var count = 0;
     for (var key in tweets) {
@@ -68,7 +63,7 @@ d3.json("./JSON/rise_up_tweets1000.json", function(tweets){
     }
 
     // Extract the array of nodes from the map by name.
-    var nodes = d3.values(nodesByName);
+    nodes = d3.values(nodesByName);
     var linksyeah = d3.values(links);
 
     // Create the link lines.
@@ -208,112 +203,10 @@ d3.json("./JSON/rise_up_tweets1000.json", function(tweets){
         return nodesByName[name] || (nodesByName[name] = {id: name, type: type});
     }
 
-    var filter1 = function() {
-        var e = document.getElementById("ddl1");
-        var strUser = e.options[e.selectedIndex].value;
 
-        if(strUser == "none"){
-            //reset filter
-            nodes = d3.values(nodesByName);
-            //update force graph
-            force
-                .nodes(nodes)
-                .links(linksyeah)
-                .on("tick", tick)
-                .start();
-        }
-        else if(strUser == "blm1"){
-            for(var i = 0; i < nodes.length; i++){
-                var temp = nodes[i];
-                if(temp != "BlackLivesMatter"){
-                    nodes.splice(i, 1);
-                }
-            }
-            force
-                .nodes(nodes)
-                .links(linksyeah)
-                .on("tick", tick)
-                .start();
-        }
-        else if(strUser == "blm2"){
-            //blm2 tweets
-            for(var i = 0; i < nodes.length; i++){
-                var temp = nodes[i];
-                if(temp != "BLM"){
-                    nodes.splice(i, 1);
-                }
-            }
-            force
-                .nodes(nodes)
-                .links(linksyeah)
-                .on("tick", tick)
-                .start();
-        }
-        else if(strUser == "blm3"){
-            //blm3 tweets
-            for(var i = 0; i < nodes.length; i++){
-                var temp = nodes[i];
-                if(temp != "blacklivesmatter"){
-                    nodes.splice(i, 1);
-                }
-            }
-            force
-                .nodes(nodes)
-                .links(linksyeah)
-                .on("tick", tick)
-                .start();
-        }
-        else if(strUser == "alm"){
-            //alm tweets
-            for(var i = 0; i < nodes.length; i++){
-                var temp = nodes[i];
-                if(temp != "AllLivesMatter"){
-                    nodes.splice(i, 1);
-                }
-            }
-            force
-                .nodes(nodes)
-                .links(linksyeah)
-                .on("tick", tick)
-                .start();
-        }
-        else if(strUser == "ruo"){
-            //ruo tweets
-            for(var i = 0; i < nodes.length; i++){
-                var temp = nodes[i];
-                if(temp != "RiseUpOctober"){
-                    nodes.splice(i, 1);
-                }
-            }
-            force
-                .nodes(nodes)
-                .links(linksyeah)
-                .on("tick", tick)
-                .start();
-        }
-    };
-
-    var filter2 = function() {
-        var e = document.getElementById("ddl2");
-        var strUser = e.options[e.selectedIndex].value;
-
-        if(strUser == "none"){
-            //reset filter
-        }
-        else if(strUser == "top1"){
-            //filter everything but BlackLivesMatter tweets
-        }
-        else if(strUser == "top5"){
-            //blm2 tweets
-        }
-        else if(strUser == "top10"){
-            //blm3 tweets
-        }
-        else if(strUser == "top20"){
-            //alm tweets
-        }
-    };
 });
+
+
 
 /**
  * Created by Jacob on 12/11/2015.
